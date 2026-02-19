@@ -78,12 +78,8 @@ def bernoulli_theta_analysis(theta_values):
 # ============================================================
 
 def normal_pdf(x, mu, sigma):
-    if sigma <= 0:
-        raise ValueError("Sigma must be positive.")
-
-    return (1.0 / (sigma * math.sqrt(2.0 * math.pi))) * \
-           math.exp(-((x - mu) ** 2.0) / (2.0 * sigma ** 2.0))
-
+    return 1/(math.sqrt(2*math.pi)*sigma) * \
+           math.exp(-((x-mu)**2)/(2*sigma**2))
 def normal_histogram_analysis(mu_values,
                               sigma_values,
                               n_samples=10000,
@@ -146,11 +142,10 @@ def normal_histogram_analysis(mu_values,
 # ============================================================
 
 def uniform_mean(a, b):
-    return (a + b) / 2.0
-
+    return (a + b) / 2
 
 def uniform_variance(a, b):
-    return ((b - a) ** 2) / 12.0
+    return (b - a)**2 / 12
 
 
 def uniform_histogram_analysis(a_values,
